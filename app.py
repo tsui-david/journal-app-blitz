@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, render_template
 from openai import OpenAI
 import json
 
@@ -25,9 +25,7 @@ output: {
 
 @app.route("/", methods=["GET"])
 def get_home():
-    return jsonify({
-        "data": "Hello world"
-    })
+    return render_template("index.html")
 
 
 @app.route("/tags", methods=["POST"])
